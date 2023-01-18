@@ -3,8 +3,8 @@ cloud:
     s3:
       bucket: sparrowavatartest
     credentials:
-      accessKey: AKIA4LJQ2LG2UXMAQ2C5
-      secretKey: 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
+      accessKey: 
+      secretKey:
     region:
       static: ap-northeast-2
       auto: false
