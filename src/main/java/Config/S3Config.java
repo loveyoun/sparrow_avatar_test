@@ -22,11 +22,11 @@ public class S3Config {
 
     //yml에 등록한 값들을 Bean으로 등록해줌
     @Bean
-    public AmazonS3 amazonS3(){
+    public AmazonS3Client amazonS3Client(){
 
-        AWSCredentials awsCredentials = new BasicAWSCredentials(accessKey, secretKey);
+        BasicAWSCredentials awsCredentials = new BasicAWSCredentials(accessKey, secretKey);
 
-        return AmazonS3ClientBuilder.standard()
+        return (AmazonS3Client)AmazonS3ClientBuilder.standard()
                 .withRegion(region)
                 .withCredentials(new AWSStaticCredentialsProvider(awsCredentials))
                 .build();

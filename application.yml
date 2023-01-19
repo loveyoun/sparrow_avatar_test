@@ -3,7 +3,7 @@ cloud:
     s3:
       bucket: sparrowavatartest
     credentials:
-      accessKey: 
+      accessKey:
       secretKey:
     region:
       static: ap-northeast-2

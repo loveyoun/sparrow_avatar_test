@@ -19,14 +19,14 @@ public class UploadController {
     private final S3UploadService s3UploadService;
 
     @PostMapping("upload")
-    private ResponseEntity<String> fileUpload(@RequestParam("image") MultipartFile multipartFile) throws IOException {
-//        try{
-//            s3UploadService.upload(multipartFile);
-//        }catch (Exception e){ return new ResponseEntity(HttpStatus.BAD_REQUEST); }
-//
-//        return new ResponseEntity(HttpStatus.NO_CONTENT);
+    private ResponseEntity<String> uploadUserImage(@RequestParam("image") MultipartFile multipartFile) {
+        try{
+            s3UploadService.uploadFiles(multipartFile, "static");
+        } catch(Exception e) { return new ResponseEntity(HttpStatus.BAD_REQUEST); }
 
-        return ResponseEntity.ok(s3UploadService.upload(multipartFile));
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
+
+        //return ResponseEntity.ok(s3UploadService.uploadFiles(multipartFile));
     }
 
 }
